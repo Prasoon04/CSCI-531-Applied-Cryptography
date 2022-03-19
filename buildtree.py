@@ -54,7 +54,6 @@ class MerkleTree:
             self.Treeout(node.right, order+5)
       
 
-#input_string = sys.argv
-input_string = ['A', 'B', 'C', 'D']
-merkle = MerkleTree(input_string)
+input_string = sys.argv
+merkle = MerkleTree(input_string[1:])
 print(merkle.printTree())
