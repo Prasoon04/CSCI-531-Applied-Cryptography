@@ -42,13 +42,24 @@ class MerkleTree:
     
     def printTree(self)->None:
         self.Treeout(self.root, 0)
-    
+
+    stack =[]
+
+    def fileOut(self)->None:
+        file = open('merkle.tree.txt', 'w+')
+        for line in self.stack:
+            file.write(line+"\n")
+
+
     def Treeout(self, node, order)->None:
-        #file = open('merkle.tree.txt', 'w+')
+        
         if node != None:            
             print(" "*order+"Hash Value: "+str(node.val))
             print(" "*order+"Input: "+str(node.data))
             print("")
+            self.stack.append(" "*order+"Hash Value: "+str(node.val))
+            self.stack.append(" "*order+"Input: "+str(node.data))
+            self.stack.append("")
             order += 5
             self.Treeout(node.left, order+5)
             self.Treeout(node.right, order+5)
@@ -56,4 +67,6 @@ class MerkleTree:
 
 input_string = sys.argv
 merkle = MerkleTree(input_string[1:])
-print(merkle.printTree())
+merkle.printTree()
+merkle.fileOut()
+
