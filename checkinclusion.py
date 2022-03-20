@@ -1,3 +1,6 @@
+#!/usr/bin/python
+#!/usr/bin/env python3
+
 import json
 from operator import index
 from xml.sax import make_parser
