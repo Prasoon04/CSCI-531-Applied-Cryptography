@@ -1,5 +1,6 @@
 import hashlib
 import sys
+import json
 
 class Node:
     def __init__(self, left, right,val, data) -> None:
@@ -44,15 +45,24 @@ class MerkleTree:
         self.Treeout(self.root, 0)
 
     stack =[]
+    json_stack = []
 
     def fileOut(self)->None:
         file = open('merkle.tree.txt', 'w+')
         for line in self.stack:
             file.write(line+"\n")
+        self.Inorder(self.root)
+        with open('example.json','w') as outfile:
+            json.dump(self.json_stack, outfile)
+
+    def Inorder(self,node)->None:
+        if node != None:
+            self.Inorder(node.left)
+            self.json_stack.append(["Hash Value: "+str(node.val), "Input: "+str(node.data)])
+            self.Inorder(node.right)
 
 
     def Treeout(self, node, order)->None:
-        
         if node != None:            
             print(" "*order+"Hash Value: "+str(node.val))
             print(" "*order+"Input: "+str(node.data))
@@ -62,11 +72,9 @@ class MerkleTree:
             self.stack.append("")
             order += 5
             self.Treeout(node.left, order+5)
-            self.Treeout(node.right, order+5)
-      
+            self.Treeout(node.right, order+5) 
 
 input_string = sys.argv
 merkle = MerkleTree(input_string[1:])
 merkle.printTree()
 merkle.fileOut()
-
