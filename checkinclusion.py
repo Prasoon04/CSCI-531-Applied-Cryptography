@@ -4,14 +4,6 @@ from xml.sax import make_parser
 import sys
 import hashlib
 
-
-class Node:
-    def __init__(self, val, data) -> None:
-        self.left = None
-        self.right = None
-        self.val = val
-        self.data = data
-
 class CheckInclusion:
     def __init__(self, Root, Leaves, input) -> None:
 
@@ -77,4 +69,4 @@ treenodes = json.load(temp)
 treeRoot = treenodes[0]
 treeLeaves = treenodes[1:]
 
-Tree = CheckInclusion(treeRoot, treeLeaves, input)
+CheckInclusion(treeRoot, treeLeaves, input)
