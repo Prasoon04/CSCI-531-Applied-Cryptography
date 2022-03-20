@@ -8,8 +8,6 @@ class CheckInclusion:
     def __init__(self, Root, Leaves, input) -> None:
 
         print(self.Inclusion(Root, Leaves, input))
-    
-
 
     def Inclusion(self, Root, Leaves, input)->None:
 
@@ -24,7 +22,6 @@ class CheckInclusion:
         else:
             return ('Yes', output)
 
-
     def Check_Merkle(self, root_hash, proofs, input_hash)->None:
 
         result = []
@@ -34,8 +31,7 @@ class CheckInclusion:
             if index_val % 2 == 0:
                 result.append(proofs[index_val+1])
                 concat = input_hash + proofs[index_val+1]
-                input_hash = hashlib.sha256(concat.encode('utf-8')).hexdigest()
-                  
+                input_hash = hashlib.sha256(concat.encode('utf-8')).hexdigest()   
             else:
                 result.append(proofs[index_val-1])
                 concat = proofs[index_val-1] + input_hash
@@ -61,12 +57,9 @@ class CheckInclusion:
         else:
             return 'No'
 
-
-
 input = sys.argv[1]
 temp = open('file1.json')
 treenodes = json.load(temp)
 treeRoot = treenodes[0]
 treeLeaves = treenodes[1:]
-
 CheckInclusion(treeRoot, treeLeaves, input)
