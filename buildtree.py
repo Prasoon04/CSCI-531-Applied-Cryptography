@@ -9,7 +9,6 @@ class Node:
         self.val = val
         self.data = data
 
-
 class MerkleTree:
     def __init__(self, inputs) -> None:
         leaves = []
