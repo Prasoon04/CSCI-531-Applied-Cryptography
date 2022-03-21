@@ -1,4 +1,3 @@
-#!/usr/bin/python
 #!/usr/bin/env python3
 
 
@@ -82,7 +81,9 @@ class MerkleTree:
             self.Treeout(node.left, order+5)
             self.Treeout(node.right, order+5) 
 
-input_string = sys.argv
-merkle = MerkleTree(input_string[1:])
-merkle.printTree()
-merkle.fileOut()
+
+if __name__ == "__main__":
+    input_string = sys.argv
+    merkle = MerkleTree(input_string[1:])
+    merkle.printTree()
+    merkle.fileOut()
