@@ -1,4 +1,3 @@
-#!/usr/bin/python
 #!/usr/bin/env python3
 
 import json
@@ -51,9 +50,11 @@ class CheckInclusion:
         else:
             return 'No'
 
-input = sys.argv[1]
-temp = open('file1.json')
-treenodes = json.load(temp)
-treeRoot = treenodes[0]
-treeLeaves = treenodes[1:]
-CheckInclusion(treeRoot, treeLeaves, input)
+
+if __name__ == "__main__":
+    input = sys.argv[1]
+    temp = open('file1.json')
+    treenodes = json.load(temp)
+    treeRoot = treenodes[0]
+    treeLeaves = treenodes[1:]
+    CheckInclusion(treeRoot, treeLeaves, input)
