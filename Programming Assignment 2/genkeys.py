@@ -7,40 +7,40 @@ KEY_SIZE = 2048
 
 
 # we find r and s in (n-1) = r*(2^s). r is odd
-def rabin_miller(num):
-    s_num = num - 1
-    t_num = 0
-    while s_num % 2 == 0:
-        s_num = s_num // 2
-        t_num += 1
+def rabin_miller(n):
+    # s_num = num - 1
+    # t_num = 0
+    # while s_num % 2 == 0:
+    #     s_num = s_num // 2
+    #     t_num += 1
 
-    for trials in range(5):
-        a_num = random.randrange(2, num - 1)
-        v_num = pow(a_num, s_num, num)
-        if v_num != 1:
-            i_index = 0
-            while v_num != (num - 1):
-                if i_index == t_num - 1:
-                    return False
-                else:
-                    i_index = i_index + 1
-                    v_num = (v_num ** 2) % num
-    # s = 0
-    # r = n - 1
-    # while r&2==0:
-    #     s+=1
-    #     r=r//2
-    # for _ in range(5):
-    #     a = random.randrange(2, n-1)
-    #     x = pow(a,r,n)
-    #     if x!=1:
-    #         i = 0
-    #         while x !=n-1:
-    #             if i == s-1:
+    # for trials in range(5):
+    #     a_num = random.randrange(2, num - 1)
+    #     v_num = pow(a_num, s_num, num)
+    #     if v_num != 1:
+    #         i_index = 0
+    #         while v_num != (num - 1):
+    #             if i_index == t_num - 1:
     #                 return False
     #             else:
-    #                 i +=1 
-    #                 x = (x**2) % n
+    #                 i_index = i_index + 1
+    #                 v_num = (v_num ** 2) % num
+    s = 0
+    r = n - 1
+    while r%2==0:
+        s+=1
+        r=r//2
+    for _ in range(5):
+        a = random.randrange(2, n-1)
+        x = pow(a,r,n)
+        if x!=1:
+            i = 0
+            while x !=n-1:
+                if i == s-1:
+                    return False
+                else:
+                    i +=1 
+                    x = (x**2) % n
     return True
 
 def prime_test(n):
