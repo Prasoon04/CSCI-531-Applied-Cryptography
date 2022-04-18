@@ -14,15 +14,6 @@ class AESCipher:
         self.key = key
         self.bs = 16
 
-    # def pad(self,message):
-    #     nofbytes = self.bs - len(message) % self.bs
-    #     extraString = nofbytes * chr(nofbytes)
-    #     return message + extraString
-
-    # @staticmethod
-    # def unpad(message):
-    #     return message[:-ord(message[len(message)-1:])]
-
     def encrypt(self, file):
         with open(file, 'r') as f:
             plaintext = f.read()
