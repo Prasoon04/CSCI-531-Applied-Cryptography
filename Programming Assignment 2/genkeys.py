@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
-import math
 import random
 import sys
 KEY_SIZE = 2048
-
 
 # we find r and s in (n-1) = r*(2^s). r is odd
 def rabin_miller(n):
@@ -85,17 +83,14 @@ def generate_keys(keysize = KEY_SIZE):
     
     d = modular_inverse(e, phi_n)
 
-    pub_key = (n, e)
-    priv_key = (n, d)
     return (n , e , d)
 
-
 if __name__ == "__main__":
-    print('Start')
+    print('******************************* Started *******************************')
     n , e, d = generate_keys(KEY_SIZE)
     with open(sys.argv[1] +".pub", 'w') as file:
-        file.write('%s, %s, %s' % (KEY_SIZE, n, e))
+        file.write('%s,%s' % (n,e))
 
     with open(sys.argv[1] +".prv", 'w') as file:
-        file.write('%s, %s, %s' % (KEY_SIZE, n, d))
+        file.write('%s,%s' % (n,d))
     
