@@ -2,4 +2,4 @@ This project consists of the sesmester project for the class CSCI 531 at USC. Ou
 
 To run script, please use the following command
 
-#### **Python main.py**
+### **Python main.py**
