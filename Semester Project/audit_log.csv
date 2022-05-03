@@ -1,0 +1,16 @@
+date_time, patient_id, user_id, action_type
+2022-02-1,1,rgosling,create
+2022-02-11,4,ajolie,query
+2022-02-12,3,bwillis,print
+2022-02-15,2,tcruise,copy
+2022-02-25,4,jdepp,delete
+2022-03-2,5,cbale,change
+2022-03-17,2,wsmith,query
+2022-03-18,1,cevans,delete
+2022-03-19,3,chemsworth,change
+2022-03-24,2,prudd,create
+2022-04-11,4,thanks,copy
+2022-04-13,5,hford,print
+2022-04-16,3,bpitt,delete
+2022-04-19,2,bcooper,query
+2022-04-21,4,djohnson,print
